@@ -11,14 +11,14 @@ class ShowScheduleList extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'show:schedulelist {limit=0}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Show all schedule list';
 
     /**
      * Create a new command instance.
@@ -37,6 +37,22 @@ class ShowScheduleList extends Command
      */
     public function handle()
     {
-        //
+
+        $limit = $this->argument('limit');
+        $password = $this->secret('Please enter your password!');
+
+        if($password == '123456') {
+            $header = ['#', 'Date', 'Time', 'Home Team', 'Away Team'];
+            if($limit == 0) {
+                $schedules = \App\Schedule::all();
+            }else {
+                $schedules = \App\Schedule::limit($limit)->get();
+            }
+            $this->table($header, $schedules);
+        }else {
+            $this->info('Your password is incorrect!!');
+            exit;
+        }
+        
     }
 }

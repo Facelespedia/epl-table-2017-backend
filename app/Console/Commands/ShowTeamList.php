@@ -37,6 +37,7 @@ class ShowTeamList extends Command
      */
     public function handle()
     {
+        
         $limit = $this->argument('limit');
         $password = $this->secret('Please enter your password!');
 
