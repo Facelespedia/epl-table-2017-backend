@@ -11,7 +11,7 @@ class ShowTeamList extends Command
      *
      * @var string
      */
-    protected $signature = 'show:teamlist';
+    protected $signature = 'show:teamlist {limit=0}';
 
     /**
      * The console command description.
@@ -37,6 +37,21 @@ class ShowTeamList extends Command
      */
     public function handle()
     {
-        $this->info('Display this on the screen');
+        $limit = $this->argument('limit');
+        $password = $this->secret('Please enter your password!');
+
+        if($password == '123456') {
+            $header = ['ID', 'Club', 'Played', 'Won', 'Drawn', 'Lost', 'GF', 'GA', 'GD', 'Points'];
+            if($limit == 0) {
+                $teams = \App\Team::all();
+            }else {
+                $teams = \App\Team::limit($limit)->get();
+            }
+            $this->table($header, $teams);
+        }else {
+            $this->info('Your password is incorrect!!');
+            exit;
+        }
+        
     }
 }
