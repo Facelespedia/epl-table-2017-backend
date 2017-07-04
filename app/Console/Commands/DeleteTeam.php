@@ -4,21 +4,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class InsertTeam extends Command
+class DeleteTeam extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'insert:team';
+    protected $signature = 'delete:team';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Insert team at parameter';
+    protected $description = 'Delete team';
 
     /**
      * Create a new command instance.
@@ -39,11 +39,10 @@ class InsertTeam extends Command
     {
         $password = $this->secret('Please enter your password!');
         if($password == '123456') {
-            $name = $this->ask('Please enter team name that you want to insert');
-            $team = \App\Team::create();
-            $team->club = $name;
-            $team->save();
-            $this->info('Insert team success!!');
+            $id = $this->ask('Please enter team id that you want to delete');
+            $team = \App\Team::find($id);
+            $team->delete();
+            $this->info('Delete team success!!');
         }else {
             $this->info('Your password is incorrect!!');
             exit;
