@@ -42,7 +42,7 @@ class DeleteTeam extends Command
             $id = $this->ask('Please enter team id that you want to delete');
             $team = \App\Team::find($id);
             $team->delete();
-            $this->info('Delete success!!');
+            $this->info('Delete team success!!');
         }else {
             $this->info('Your password is incorrect!!');
             exit;

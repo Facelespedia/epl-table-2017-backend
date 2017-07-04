@@ -39,10 +39,11 @@ class InsertTeam extends Command
     {
         $password = $this->secret('Please enter your password!');
         if($password == '123456') {
-            $name = $this->ask('What is your team name?');
+            $name = $this->ask('Please enter team name that you want to insert');
             $team = \App\Team::create();
             $team->club = $name;
             $team->save();
+            $this->info('Insert team success!!');
         }else {
             $this->info('Your password is incorrect!!');
             exit;
