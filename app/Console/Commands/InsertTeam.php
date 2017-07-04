@@ -11,7 +11,7 @@ class InsertTeam extends Command
      *
      * @var string
      */
-    protected $signature = 'insert:team {team_name}';
+    protected $signature = 'insert:team';
 
     /**
      * The console command description.
@@ -39,10 +39,13 @@ class InsertTeam extends Command
     {
         $password = $this->secret('Please enter your password!');
         if($password == '123456') {
-        $team = \App\Team::create();
-        $team_name = $this->argument('team_name');
-        $team->club = $team_name;
-        $team->save();
+            $name = $this->ask('What is your team name?');
+            $team = \App\Team::create();
+            $team->club = $name;
+            $team->save();
+        }else {
+            $this->info('Your password is incorrect!!');
+            exit;
         }
     }
 }
