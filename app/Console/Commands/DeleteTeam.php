@@ -11,14 +11,14 @@ class DeleteTeam extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'delete:team';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Delete team';
 
     /**
      * Create a new command instance.
@@ -37,6 +37,15 @@ class DeleteTeam extends Command
      */
     public function handle()
     {
-        //
+        $password = $this->secret('Please enter your password!');
+        if($password == '123456') {
+            $id = $this->ask('Please enter team id that you want to delete');
+            $team = \App\Team::find($id);
+            $team->delete();
+            $this->info('Delete success!!');
+        }else {
+            $this->info('Your password is incorrect!!');
+            exit;
+        }
     }
 }
