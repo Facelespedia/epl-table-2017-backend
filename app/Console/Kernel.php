@@ -16,6 +16,9 @@ class Kernel extends ConsoleKernel
         Commands\Inspire::class,
         Commands\ShowTeamList::class,
         Commands\ShowScheduleList::class,
+        Commands\InsertTeam::class,
+        Commands\DeleteTeam::class,
+        Commands\EditTeam::class,
     ];
 
     /**
