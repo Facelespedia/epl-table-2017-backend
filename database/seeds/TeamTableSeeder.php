@@ -37,5 +37,6 @@ class TeamTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         App\Team::truncate();
         App\Team::insert($teams);
+        
     }
 }
