@@ -11,7 +11,7 @@ class ShowScheduleList extends Command
      *
      * @var string
      */
-    protected $signature = 'show:schedulelist {limit=0}';
+    protected $signature = 'show:schedulelist';
 
     /**
      * The console command description.
@@ -38,15 +38,21 @@ class ShowScheduleList extends Command
     public function handle()
     {
 
-        $limit = $this->argument('limit');
         $password = $this->secret('Please enter your password!');
 
         if($password == '123456') {
             $header = ['#', 'Date', 'Time', 'Home Team', 'Away Team'];
-            if($limit == 0) {
-                $schedules = \App\Schedule::all();
-            }else {
-                $schedules = \App\Schedule::limit($limit)->get();
+            $schedules = \App\Schedule::select('id', 'date', 'time', 'home_team_id', 'away_team_id')->get();
+            foreach($schedules as $s) {
+                $id = (int)$s->id-1;
+                $id_h = (int)($s->home_team_id) - 1;
+                $id_a = (int)($s->away_team_id) - 1;
+                $team_h = \App\Team::find($id_h+1);
+                $team_a = \App\Team::find($id_a+1);
+                $team_h_name = $team_h->club;
+                $team_a_name = $team_a->club;
+                $schedules->get($id)->home_team_id = $team_h_name;
+                $schedules->get($id)->away_team_id = $team_a_name;
             }
             $this->table($header, $schedules);
         }else {
