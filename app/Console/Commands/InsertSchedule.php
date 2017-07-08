@@ -47,21 +47,14 @@ class InsertSchedule extends Command
             $minute = $this->ask('Please fill in time(minute)');
             $id_home = $this->ask('Please fill in team home id');
             $id_away = $this->ask('Please fill in team away id');
-            $team_home = \App\Team::find($id_home)->id;
+            $team_home = \App\Team::find($id_home);
             $team_away = \App\Team::find($id_away);
 
-            // $schedule = \App\Schedule::create(['home_team_id' => $team_home, 'away_team_id' => '2']);
-            $date = new DateTime();
+            $date = new \DateTime();
             $date->setDate($year, $month, $day);
             $date->setTime($hour, $minute);
-          
-            
-
-            // $schedule->date = $date;
-            // $schedule->time = $date;
-            // $schedule->home_team()->save($team_home);
-            // $schedule->away_team_id()->associate($team_away->id);
-            // $schedule->save();
+            $s = [ 'date' => $date , 'time' => $date, 'home_team_id' => $id_home, 'away_team_id' => $id_away ];
+            $schedule = \App\Schedule::create($s);
 
             $this->info('Insert schedule success!!');
         }else {
