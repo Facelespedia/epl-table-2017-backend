@@ -20,7 +20,6 @@ class Kernel extends ConsoleKernel
         Commands\DeleteTeam::class,
         Commands\EditTeam::class,
         Commands\InsertSchedule::class,
-        Commands\EditSchedule::class,
     ];
 
     /**
