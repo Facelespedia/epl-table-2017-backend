@@ -62,6 +62,12 @@ class EditSchedule extends Command
             \App\Schedule::where('home_team_id', $team_home_id)
                                         ->where('away_team_id', $team_away_id)
                                         ->update($data);
+            $header = ['#', 'Date', 'Time', 'Home Team', 'Away Team'];
+            $schedule = \App\Schedule::select('id', 'date', 'time', 'home_team_id', 'away_team_id')
+                                        ->where('home_team_id', $team_home_id)
+                                        ->where('away_team_id', $team_away_id)->get();
+            $this->table($header, $schedule);
+            $this->info('Edit schedule success!!');
         }else {
             $this->info('Your password is incorrect!!');
             exit;
