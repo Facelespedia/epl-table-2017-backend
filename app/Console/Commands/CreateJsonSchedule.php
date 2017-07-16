@@ -44,7 +44,7 @@ class CreateJsonSchedule extends Command
 
         $response['schedules'] = $posts;
 
-        $fp = fopen('schedule.json', 'w');
+        $fp = fopen('schedules.json', 'w');
         fwrite($fp, json_encode($response));
         fclose($fp);
     }
