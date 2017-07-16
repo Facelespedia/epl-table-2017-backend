@@ -11,14 +11,14 @@ class CreateJsonData extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'create:json_data';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Command create json data';
 
     /**
      * Create a new command instance.
@@ -37,6 +37,16 @@ class CreateJsonData extends Command
      */
     public function handle()
     {
-        //
+        $response = array();
+
+        $schedules = \App\Schedule::all();
+        $teams = \App\Team::all();
+
+        $response['schedules'] = $schedules;
+        $response['teams'] = $teams;
+
+        $fp = fopen('epl_data.json', 'w');
+        fwrite($fp, json_encode($response));
+        fclose($fp);
     }
 }
