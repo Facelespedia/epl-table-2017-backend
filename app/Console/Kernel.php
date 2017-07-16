@@ -22,6 +22,7 @@ class Kernel extends ConsoleKernel
         Commands\InsertSchedule::class,
         Commands\EditSchedule::class,
         Commands\DeleteSchedule::class,
+        Commands\CreateJsonTeam::class,
     ];
 
     /**
