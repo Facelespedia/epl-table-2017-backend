@@ -4,21 +4,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class CreateJsonTeam extends Command
+class CreateJsonData extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'create:json_team';
+    protected $signature = 'create:json_data';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command create json team';
+    protected $description = 'Command create json data';
 
     /**
      * Create a new command instance.
@@ -39,11 +39,13 @@ class CreateJsonTeam extends Command
     {
         $response = array();
 
-        $posts = \App\Team::all();
+        $schedules = \App\Schedule::all();
+        $teams = \App\Team::all();
 
-        $response['teams'] = $posts;
+        $response['schedules'] = $schedules;
+        $response['teams'] = $teams;
 
-        $fp = fopen('teams.json', 'w');
+        $fp = fopen('epl_data.json', 'w');
         fwrite($fp, json_encode($response));
         fclose($fp);
     }

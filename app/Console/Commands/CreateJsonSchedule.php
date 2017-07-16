@@ -4,21 +4,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class CreateJsonTeam extends Command
+class CreateJsonSchedule extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'create:json_team';
+    protected $signature = 'create:json_schedule';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command create json team';
+    protected $description = 'Command create json schedule';
 
     /**
      * Create a new command instance.
@@ -39,11 +39,11 @@ class CreateJsonTeam extends Command
     {
         $response = array();
 
-        $posts = \App\Team::all();
+        $posts = \App\Schedule::all();
 
-        $response['teams'] = $posts;
+        $response['schedules'] = $posts;
 
-        $fp = fopen('teams.json', 'w');
+        $fp = fopen('schedules.json', 'w');
         fwrite($fp, json_encode($response));
         fclose($fp);
     }
