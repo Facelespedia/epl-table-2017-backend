@@ -37,6 +37,15 @@ class CreateJsonTeam extends Command
      */
     public function handle()
     {
-        $this->info('5555');
+        $response = array();
+        $posts = array();
+
+        $posts[] = \App\Team::all();
+
+        $response['teams'] = $posts;
+
+        $fp = fopen('teams.json', 'w');
+        fwrite($fp, json_encode($response));
+        fclose($fp);
     }
 }
