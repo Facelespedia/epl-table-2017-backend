@@ -24,6 +24,7 @@ class Kernel extends ConsoleKernel
         Commands\DeleteSchedule::class,
         Commands\CreateJsonTeam::class,
         Commands\CreateJsonSchedule::class,
+        Commands\CreateJsonData::class,
     ];
 
     /**

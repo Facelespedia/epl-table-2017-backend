@@ -38,9 +38,8 @@ class CreateJsonTeam extends Command
     public function handle()
     {
         $response = array();
-        $posts = array();
 
-        $posts[] = \App\Team::all();
+        $posts = \App\Team::all();
 
         $response['teams'] = $posts;
 

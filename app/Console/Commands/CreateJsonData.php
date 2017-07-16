@@ -4,21 +4,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class CreateJsonSchedule extends Command
+class CreateJsonData extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'create:json_schedule';
+    protected $signature = 'command:name';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command create json schedule';
+    protected $description = 'Command description';
 
     /**
      * Create a new command instance.
@@ -37,14 +37,6 @@ class CreateJsonSchedule extends Command
      */
     public function handle()
     {
-        $response = array();
-
-        $posts = \App\Schedule::all();
-
-        $response['schedules'] = $posts;
-
-        $fp = fopen('schedules.json', 'w');
-        fwrite($fp, json_encode($response));
-        fclose($fp);
+        //
     }
 }
