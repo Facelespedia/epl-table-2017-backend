@@ -5,8 +5,8 @@
     <title>Premier League 2017-18</title>
 </head>
 <body>
-    <header>header</header>
+    <header>@include('layout.header')</header>
     <div class="container">@yield('content')</div>
-    <footer>footer</footer>
+    <footer>@include('layout.footer')</footer>
 </body>
 </html>
