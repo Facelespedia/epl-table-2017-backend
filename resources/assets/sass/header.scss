@@ -1,6 +1,11 @@
-.x {
-    background-color: #38003c !important;
-}
-.x::before {
-    color: white !important;
+.navbar-style {
+  background-color: #38003c;
+  ul {
+      color: white !important;
+  }
+
+  img {
+    height: 3.5em;
+    width: auto;
+  }
 }
