@@ -1,7 +1,9 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-light bg-faded">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Premier League</a>
+      <a class="navbar-brand" href="#">
+        <img src="/images/logo.png">
+      </a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>

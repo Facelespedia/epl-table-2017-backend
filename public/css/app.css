@@ -5730,4 +5730,10 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.x {
+  background-color: #38003c !important; }
+
+.x::before {
+  color: white !important; }
+
 /*# sourceMappingURL=app.css.map */
