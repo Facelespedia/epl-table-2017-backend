@@ -5,7 +5,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="#">Home</a>
-      <a class="nav-item nav-link" href="#">Tables</a>
+      <a class="nav-item nav-link" href="/api/teams">Tables</a>
       <a class="nav-item nav-link" href="#">Match Days</a>
     </div>
   </div>
