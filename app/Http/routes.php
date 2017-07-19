@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('table.index');
+});
+Route::get('/api/teams', function() {
+    $response = array();
+    $teams = \App\Team::all();
+    $response['teams'] = $teams;
+    return $response;
 });

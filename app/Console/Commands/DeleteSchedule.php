@@ -4,21 +4,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class ShowScheduleList extends Command
+class DeleteSchedule extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'show:schedulelist';
+    protected $signature = 'delete:schedule';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Show all schedule list';
+    protected $description = 'Command delete schedule';
 
     /**
      * Create a new command instance.
@@ -37,9 +37,7 @@ class ShowScheduleList extends Command
      */
     public function handle()
     {
-
         $password = $this->secret('Please enter your password!');
-
         if($password == '123456') {
             $header = ['#', 'Date', 'Time', 'Home Team', 'Away Team'];
             $schedules = \App\Schedule::select('id', 'date', 'time', 'home_team_id', 'away_team_id')->get();
@@ -55,10 +53,14 @@ class ShowScheduleList extends Command
                 $schedules->get($id)->away_team_id = $team_a_name;
             }
             $this->table($header, $schedules);
+
+            $id = $this->ask('Please enter schedule id that you want to delete');
+            $schedule = \App\Schedule::find($id);
+            $schedule->delete();
+            $this->info('Delete schedule success!!');
         }else {
             $this->info('Your password is incorrect!!');
             exit;
         }
-        
     }
 }
