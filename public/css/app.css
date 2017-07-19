@@ -6371,10 +6371,12 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 .navbar-style {
   background-color: #38003c; }
-  .navbar-style ul {
+  .navbar-style a {
     color: white !important; }
   .navbar-style img {
     height: 3.5em;
     width: auto; }
+  .navbar-style a.nav-link:hover {
+    border-bottom: solid 3px red; }
 
 /*# sourceMappingURL=app.css.map */

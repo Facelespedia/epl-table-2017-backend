@@ -1,11 +1,13 @@
 .navbar-style {
   background-color: #38003c;
-  ul {
+  a {
       color: white !important;
   }
-
   img {
     height: 3.5em;
     width: auto;
+  }
+  a.nav-link:hover {
+      border-bottom: solid 3px red;
   }
 }
