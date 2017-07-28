@@ -20,3 +20,9 @@ Route::get('/api/teams', function() {
     $response['teams'] = $teams;
     return $response;
 });
+Route::get('/api/schedules', function() {
+    $response = array();
+    $schedules = \App\Schedule::all();
+    $response['schedules'] = $schedules;
+    return $response;
+});
