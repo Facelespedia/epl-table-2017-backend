@@ -24,9 +24,9 @@ Route::get('/api/schedules', function() {
 });
 Route::get('/api/delete/team/{name}/', function($name) {
     $team = \App\Team::where('club',$name)->first();
-    // $team->delete();
+    $team->delete();
     $teams = \App\Team::all();
-    return $team;
+    return $teams;
 });
 Route::resource('teams', 'TeamController', ['only' => [
     'destroy']
