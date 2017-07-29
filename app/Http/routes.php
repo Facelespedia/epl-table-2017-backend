@@ -23,3 +23,4 @@ Route::get('/api/schedules', function() {
     return $schedules;
 });
 Route::post('/api/delete/team/{id}', 'TeamController@destroy');
+// token = hHWcA7CTOEvobq3oHbpv63d3kcHenEHlpWESOzcX

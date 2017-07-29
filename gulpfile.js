@@ -19,10 +19,10 @@ elixir.extend('remove', function(path) {
 
 
 elixir(function(mix) {
-    mix.remove([ 'public/css', 'public/images' ]);
+    mix.remove([ 'public/css', 'public/images', 'public/js' ]);
     mix.sass('app.scss');
     mix.copy('resources/assets/images', 'public/images');
     mix.copy('node_modules/jquery/dist/jquery.min.js', 'resources/assets/js/')
-    mix.scripts(['index.js'], 'public/js/main.js')
+    mix.scripts(['config.js'], 'public/js/config.js')
     .scripts(['jquery.min.js'], 'public/js/jquery.min.js');
 });
