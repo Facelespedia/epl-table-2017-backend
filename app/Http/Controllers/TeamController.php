@@ -79,8 +79,9 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($name)
+    public function destroy($id)
     {
-        $this->info("name");
+        $team = \App\Team::where('id',$id)->first();
+        $team->delete();
     }
 }

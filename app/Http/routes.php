@@ -22,12 +22,4 @@ Route::get('/api/schedules', function() {
     $schedules = \App\Schedule::all();
     return $schedules;
 });
-Route::get('/api/delete/team/{name}/', function($name) {
-    $team = \App\Team::where('club',$name)->first();
-    $team->delete();
-    $teams = \App\Team::all();
-    return $teams;
-});
-Route::resource('teams', 'TeamController', ['only' => [
-    'destroy']
-]);
+Route::post('/api/delete/team/{id}', 'TeamController@destroy');
