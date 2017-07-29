@@ -15,14 +15,11 @@ Route::get('/', function () {
     return view('table.index');
 });
 Route::get('/api/teams', function() {
-    $response = array();
     $teams = \App\Team::all();
-    $response['teams'] = $teams;
-    return $response;
+    return $teams;
 });
 Route::get('/api/schedules', function() {
-    $response = array();
     $schedules = \App\Schedule::all();
-    $response['schedules'] = $schedules;
-    return $response;
+    return $schedules;
 });
+Route::post('/api/delete/team/{id}', 'TeamController@destroy');

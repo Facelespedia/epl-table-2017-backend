@@ -18,8 +18,8 @@ class CreateSchedulesTable extends Migration
             $table->time('time');
             $table->integer('home_team_id')->unsigned();
             $table->integer('away_team_id')->unsigned();
-            $table->foreign('home_team_id')->references('id')->on('teams');
-            $table->foreign('away_team_id')->references('id')->on('teams');
+            $table->foreign('home_team_id')->references('id')->on('teams')->onDelete('cascade');;
+            $table->foreign('away_team_id')->references('id')->on('teams')->onDelete('cascade');;
             $table->timestamps();
         });
     }
