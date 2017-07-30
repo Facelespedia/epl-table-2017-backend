@@ -17,3 +17,8 @@ $.ajaxSetup({
 // 					'club': 'abc', 'played': 1, 'won': 1, 'drawn': 1, 'lost': 1,
 // 					'goal_for': 1, 'goal_against': 1, 'goal_difference': 1, 'points': 1 }
 // });
+$.ajax({
+  url: 'http://localhost:8000/api/edit/match/1',
+  method: 'PUT',
+	data: { '_token': 'hHWcA7CTOEvobq3oHbpv63d3kcHenEHlpWESOzcX'}
+});
