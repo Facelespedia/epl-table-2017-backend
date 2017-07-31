@@ -1,3 +1,8 @@
+@import "dashboard/sidebar.scss";
+@import "dashboard/navbar.scss";
 .container-dashboard {
     height: 100vh;
+}
+.remove-margin-right {
+  margin-right: 0px;
 }
