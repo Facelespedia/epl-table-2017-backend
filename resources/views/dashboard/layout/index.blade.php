@@ -8,8 +8,11 @@
   <script src="js/config.js"></script>
 </head>
 </head>
-<body> 
+<body>
     <header>@include('dashboard.layout.header')</header>
-    <div class="container">@yield('content')</div>
+    <div class="row remove-margin-right container-dashboard">
+      <div class="col-md-2 container-sidebar">@include('dashboard.layout.left_side')</div>
+      <div class="col-md-10">@yield('content')</div>
+    </div>
 </body>
 </html>
