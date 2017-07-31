@@ -74,8 +74,8 @@ class ScheduleController extends Controller
     {
         $schedule = Schedule::find($id);
         $date = new \DateTime();
-        $date->setDate(2000, 7, 1);
-        $date->setTime(21, 30);
+        $date->setDate($request['year'], $request['month'], $request['day']);
+        $date->setTime($request['hour'], $request['minute']);
         $schedule->date = $date;
         $schedule->time = $date;
         $schedule->save();
