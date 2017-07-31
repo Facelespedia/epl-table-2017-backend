@@ -22,3 +22,8 @@ $.ajaxSetup({
 //   method: 'PUT',
 // 	data: { '_token': 'hHWcA7CTOEvobq3oHbpv63d3kcHenEHlpWESOzcX', 'year': '2200', 'month': '12', 'day': '31', 'hour': '12', 'minute': '0' }
 // });
+// $.ajax({
+//   url: 'http://localhost:8000/api/delete/schedule/1',
+//   method: 'POST',
+// 	data: { '_token': 'hHWcA7CTOEvobq3oHbpv63d3kcHenEHlpWESOzcX' }
+// });
