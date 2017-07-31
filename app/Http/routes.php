@@ -26,4 +26,7 @@ Route::post('/api/delete/team/{id}', 'TeamController@destroy');
 Route::post('/api/delete/schedule/{id}', 'ScheduleController@destroy');
 Route::put('/api/edit/team/{id}', 'TeamController@update');
 Route::put('/api/edit/match/{id}', 'ScheduleController@update');
+Route::get('/admin', function() {
+    return view('dashboard.index');
+});
 // token = hHWcA7CTOEvobq3oHbpv63d3kcHenEHlpWESOzcX
