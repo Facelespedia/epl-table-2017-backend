@@ -6,12 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Team;
+use App\Schedule;
 
-
-class TeamController extends Controller
+class ScheduleController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -73,17 +72,13 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $team = Team::find($id);
-        $team->club = $request['club'];
-        $team->played = $request['played'];
-        $team->won = $request['won'];
-        $team->drawn = $request['drawn'];
-        $team->lost = $request['lost'];
-        $team->goal_for = $request['goal_for'];
-        $team->goal_against = $request['goal_against'];
-        $team->goal_difference = $request['goal_difference'];
-        $team->points = $request['points'];
-        $team->save();
+        $schedule = Schedule::find($id);
+        $date = new \DateTime();
+        $date->setDate($request['year'], $request['month'], $request['day']);
+        $date->setTime($request['hour'], $request['minute']);
+        $schedule->date = $date;
+        $schedule->time = $date;
+        $schedule->save();
     }
 
     /**
@@ -94,7 +89,5 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        $team = Team::where('id',$id)->first();
-        $team->delete();
     }
 }
