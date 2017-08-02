@@ -1,27 +1,24 @@
-var state = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-  'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-  'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-  'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-  'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-];
-
 var states = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.whitespace,
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  // `states` is an array of state names defined in "The Basics"
-  local: state
+	datumTokenizer: Bloodhound.tokenizers.whitespace,
+	queryTokenizer: Bloodhound.tokenizers.whitespace,
+	// prefetch: {
+  //   url: '/api/schedules',
+  //   filter: function(data) {
+  //     // assume data is an array of strings e.g. ['one', 'two', 'three']
+  //     return $.map(data, function(str) { return { value: str }; });
+  //   },
+	// }
+	remote: {
+		url:'/search/autocomplete/%QUERY',
+		wildcard: '%QUERY'
+	}
 });
-
-$('#bloodhound .typeahead').typeahead({
-  hint: true,
+states.initialize();
+$('.typeahead').typeahead({
+	hint: true,
   highlight: true,
   minLength: 1
-},
-{
-  name: 'states',
-  source: states
+}, {
+	display: 'club',
+	source: states.ttAdapter(),
 });

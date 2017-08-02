@@ -44,6 +44,11 @@ Route::get('/admin/{type?}', function($type="match") {
         return view('dashboard.team.index');
     }
 });
+Route::get('/search/autocomplete/{query?}', function($query="") {
+    $teams = \App\Team::where('club', $query)
+    ->orWhere('club', 'like', '%' . $query . '%')->get();
+    return $teams;
+});
 // Route::group(array('prefix' => 'admin'), function()
 // {
 
