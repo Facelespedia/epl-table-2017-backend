@@ -6,7 +6,7 @@
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <a href="" class="icon-size"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+      <a href="/" class="icon-size"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
     </form>
   </div>
 </nav>

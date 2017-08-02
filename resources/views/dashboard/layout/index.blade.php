@@ -10,8 +10,8 @@
 </head>
 <body>
     <header>@include('dashboard.layout.header')</header>
-    <div class="row remove-margin-right container-dashboard">
-      <div class="col-md-2 container-sidebar">@include('dashboard.layout.left_side')</div>
+    <div class="row no-margin container-dashboard">
+      <div class="col-md-2 no-padding container-sidebar">@include('dashboard.layout.left_side')</div>
       <div class="col-md-10">@yield('content')</div>
     </div>
 </body>
