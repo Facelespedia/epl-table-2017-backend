@@ -6,6 +6,7 @@
   <link href="{{ URL::asset('/css/app.css') }}" rel="stylesheet" type="text/css">
   <script src="{!! asset('js/jquery.min.js') !!}"></script>
   <script src="{!! asset('js/config.js') !!}"></script> 
+  <script src="{!! asset('js/typeahead.js') !!}"></script> 
 </head>
 </head>
 <body>

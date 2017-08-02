@@ -27,4 +27,5 @@ elixir(function(mix) {
     mix.scripts(['config.js'], 'public/js/config.js')
     .scripts(['jquery.min.js'], 'public/js/jquery.min.js')
     .scripts(['admin.js', 'admin-match.js'], 'public/js/admin.js')
+    .scripts(['typeahead.js'], 'public/js/typeahead.js');
 });

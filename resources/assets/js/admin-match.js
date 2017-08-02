@@ -1,14 +1,27 @@
-$.ajax({
-  url: '/api/schedules',
-  method: 'GET'
-}).done(function(data) {
-	$.each( data, function( key, value) {
-		$('#match-table tbody').append('<tr></tr>');
-		$('#match-table tbody tr:last').append('<td class="text-center">'+value.id+'</td>');
-		$('#match-table tbody tr:last').append('<td class="text-center">'+value.date+'</td>');
-		$('#match-table tbody tr:last').append('<td class="text-center">'+value.time+'</td>');
-		$('#match-table tbody tr:last').append('<td class="text-center">'+value.home_team_id+'</td>');
-		$('#match-table tbody tr:last').append('<td class="text-center">'+value.away_team_id+'</td>');
-		// console.log(key);
-	});
+var state = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+  'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+  'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+  'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+  'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+];
+
+var states = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  // `states` is an array of state names defined in "The Basics"
+  local: state
+});
+
+$('#bloodhound .typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'states',
+  source: states
 });
