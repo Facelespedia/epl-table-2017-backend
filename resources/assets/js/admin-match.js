@@ -46,8 +46,12 @@ $('.typeahead-away').typeahead({
 $('#search-schedule').on('click', function() {
 	$.ajax({
 		url: "/api/schedules",
-		data: {  '_token': 'hHWcA7CTOEvobq3oHbpv63d3kcHenEHlpWESOzcX', 'team_home': $('.typeahead-home').val(), 'team_away': $('.typeahead-away').val() }
+		data: { 'team_home': $('.typeahead-home').val(), 'team_away': $('.typeahead-away').val() }
 	}).done(function(data) {
-		console.log(data);
+		$('#match-id').val(data.id);
+		$('#home-id').val(data.home_team_id);
+		$('#away-id').val(data.away_team_id);
+		$('#date').val(data.date);
+		$('#time').val(data.time);		
 	});
 });
