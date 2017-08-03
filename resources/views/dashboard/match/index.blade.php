@@ -9,10 +9,10 @@
         <input class="typeahead-away" type="text" placeholder="Team Away">
       </div>
       <div class="col-md-2 middle-row">
-        <div id="search-schedule" class="btn btn-primary">Search</div>
+        <button id="search-schedule" class="btn btn-primary">Search</button>
       </div>
       <div class="col-md-2 middle-row">
-        <div id="set-schedule" class="btn btn-danger">Set</div>
+        <button id="set-schedule" class="btn btn-danger">Set</button>
       </div>
     </div>
     <br/>
