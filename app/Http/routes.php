@@ -35,9 +35,13 @@ Route::get('/api/schedules', function(Request $request) {
         }
         return $schedules;
     }else {
-        $schedules = \App\Schedule::where('home_team_id', $request->input('team_home'))
-        ->where('away_team_id', $request->input('team_away'));
-        return $schedules;
+        $team_h = \App\Team::where('club', $request->input('team_home'))->first();
+        $team_a = \App\Team::where('club', $request->input('team_away'))->first();
+        $schedule = \App\Schedule::where('home_team_id', $team_h->id)
+        ->where('away_team_id', $team_a->id)->first();
+        $schedule->home_team_id = $team_h->club;
+        $schedule->away_team_id = $team_a->club;
+        return $schedule;
     }
 });
 Route::post('/api/delete/team/{id}', 'TeamController@destroy');

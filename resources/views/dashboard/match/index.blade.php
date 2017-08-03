@@ -9,12 +9,12 @@
         <input class="typeahead-away" type="text" placeholder="Team Away">
       </div>
       <div class="col-md-4 middle-row">
-        <a href="" class="btn btn-primary">Search</a>
+        <a href="" id="search-schedule" class="btn btn-primary">Search</a>
       </div>
     </div>
     <br/>
-    <div class="box">
+    {{--  <div class="box">
       
-    </div>
+    </div>  --}}
   </div>
 @stop

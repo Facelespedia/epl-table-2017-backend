@@ -42,3 +42,12 @@ $('.typeahead-away').typeahead({
 	display: 'club',
 	source: away.ttAdapter(),
 });
+
+$('#search-schedule').on('click', function() {
+	$.ajax({
+		url: "/api/schedules",
+		data: {  '_token': 'hHWcA7CTOEvobq3oHbpv63d3kcHenEHlpWESOzcX', 'team_home': $('.typeahead-home').val(), 'team_away': $('.typeahead-away').val() }
+	}).done(function(data) {
+		console.log(data);
+	});
+});
