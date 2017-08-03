@@ -10,7 +10,7 @@ home.initialize();
 $('.typeahead-home').typeahead({
 	hint: false,
   highlight: true,
-	minLength: 1,
+	minLength: 2,
 	classNames: {
 		input: 'autocomplete-field',
     suggestion: 'autocomplete-suggest',
@@ -67,5 +67,19 @@ $('#search-schedule').on('click', function() {
 		});
 		$('.typeahead-home').val("");
 		$('.typeahead-away').val("");
+	}
+});
+
+$('#set-schedule').on('click', function() {
+	if (~[$('#year').val(), $('#month').val(), $('#day').val(), $('#hour').val(), $('#minute').val()].indexOf("")) {
+		alert("Failed !!");
+	}else {
+		$.ajax({
+  		url: '/api/edit/match/'+$('#match-id').val(),
+  		method: 'PUT',
+			data: { '_token': 'hHWcA7CTOEvobq3oHbpv63d3kcHenEHlpWESOzcX', 'year': $('#year').val(), 'month': $('#month').val(), 'day': $('#day').val(), 'hour': $('#hour').val(), 'minute': $('#minute').val() }
+		});
+		alert("Success");
+		$('#data-match').fadeOut("slow");
 	}
 });
