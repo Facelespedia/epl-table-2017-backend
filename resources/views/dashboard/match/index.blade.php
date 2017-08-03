@@ -8,12 +8,15 @@
       <div class="col-md-4">
         <input class="typeahead-away" type="text" placeholder="Team Away">
       </div>
-      <div class="col-md-4 middle-row">
+      <div class="col-md-2 middle-row">
         <div id="search-schedule" class="btn btn-primary">Search</div>
+      </div>
+      <div class="col-md-2 middle-row">
+        <div id="set-schedule" class="btn btn-danger">Set</div>
       </div>
     </div>
     <br/>
-    <div class="box" style="overflow:scroll;">
+    <div id="data-match" class="box" style="display:none;">
       <div class="box">
         <div class="form-group row">
           <label for="match-id" class="col-2 col-form-label">Match ID : </label>
@@ -45,15 +48,15 @@
             <div class="box">
               <div class="form-group row">
                   <div class="col-3">
-                    <input class="form-control text-center" type="text" id="away-id">
+                    <input class="form-control text-center" type="text" id="year">
                   </div>
-                  <label for="away-id" >/</label>
+                  <label class="middle-row">/</label>
                   <div class="col-3">
-                    <input class="form-control text-center" type="text" id="away-id">
+                    <input class="form-control text-center" type="text" id="month">
                   </div>
-                  <label for="away-id">/</label>
+                  <label class="middle-row">/</label>
                   <div class="col-3">
-                    <input class="form-control text-center" type="text" id="away-id">
+                    <input class="form-control text-center" type="text" id="day">
                   </div>
               </div>
             </div>
@@ -67,11 +70,11 @@
            <div class="box">
               <div class="form-group row">
                   <div class="col-3">
-                    <input class="form-control text-center" type="text" id="away-id">
+                    <input class="form-control text-center" type="text" id="hour">
                   </div>
-                  <label for="away-id" >/</label>
+                  <label class="middle-row">/</label>
                   <div class="col-3">
-                    <input class="form-control text-center" type="text" id="away-id">
+                    <input class="form-control text-center" type="text" id="minute">
                   </div>
               </div>
             </div>

@@ -44,14 +44,28 @@ $('.typeahead-away').typeahead({
 });
 
 $('#search-schedule').on('click', function() {
-	$.ajax({
-		url: "/api/schedules",
-		data: { 'team_home': $('.typeahead-home').val(), 'team_away': $('.typeahead-away').val() }
-	}).done(function(data) {
-		$('#match-id').val(data.id);
-		$('#home-id').val(data.home_team_id);
-		$('#away-id').val(data.away_team_id);
-		$('#date').val(data.date);
-		$('#time').val(data.time);		
-	});
+	if($('.typeahead-home').val() == "" || $('.typeahead-away').val() == "") {
+		$('#data-match').fadeOut("slow");
+		alert("Please input team home and team away !!!");
+		$('.container-match input').val("");
+}else {
+		$.ajax({
+			url: "/api/schedules",
+			data: { 'team_home': $('.typeahead-home').val(), 'team_away': $('.typeahead-away').val() }
+		}).done(function(data) {
+			$('#match-id').val(data.id);
+			$('#home-id').val(data.home_team_id);
+			$('#away-id').val(data.away_team_id);
+			var dateList = data.date.split("-");
+			$('#year').val(dateList[0]);
+			$('#month').val(dateList[1]);
+			$('#day').val(dateList[2]);
+			var timeList = data.time.split(":");
+			$('#hour').val(timeList[0]);
+			$('#minute').val(timeList[1]);
+			$('#data-match').fadeIn("slow");
+		});
+		$('.typeahead-home').val("");
+		$('.typeahead-away').val("");
+	}
 });
