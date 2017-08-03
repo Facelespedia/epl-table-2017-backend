@@ -1,13 +1,6 @@
 var states = new Bloodhound({
 	datumTokenizer: Bloodhound.tokenizers.whitespace,
 	queryTokenizer: Bloodhound.tokenizers.whitespace,
-	// prefetch: {
-  //   url: '/api/schedules',
-  //   filter: function(data) {
-  //     // assume data is an array of strings e.g. ['one', 'two', 'three']
-  //     return $.map(data, function(str) { return { value: str }; });
-  //   },
-	// }
 	remote: {
 		url:'/search/autocomplete/%QUERY',
 		wildcard: '%QUERY'
@@ -15,9 +8,20 @@ var states = new Bloodhound({
 });
 states.initialize();
 $('.typeahead').typeahead({
-	hint: true,
+	hint: false,
   highlight: true,
-  minLength: 1
+	minLength: 1,
+	classNames: {
+		input: 'autocomplete-field',
+    hint: 'a',
+    menu: 'b',
+    dataset: 'c',
+    suggestion: 'd',
+    empty: 'e',
+    open: 'f',
+    cursor: 'g',
+    highlight: 'h'
+  }
 }, {
 	display: 'club',
 	source: states.ttAdapter(),

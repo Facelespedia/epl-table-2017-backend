@@ -1,3 +1,35 @@
 .container-match {
   padding: 20px;
 }
+.middle-row {
+  align-self: center;
+}
+.autocomplete-field {
+  border-radius: 20px;
+  height: 50px;
+  border: 2px solid #979797   ;
+  text-align: center;
+  width: 300px;
+  &:focus {
+    outline: 0;
+  }
+  &:focus::-webkit-input-placeholder 
+  {
+    color: transparent;
+  }
+}
+// .autocomplete-cursor {
+//   cursor: pointer;
+// }
+.d {
+  width: 300px;
+  padding: 8px;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(	151, 151, 151, 0.2 );
+  }
+}
+.f {
+  margin-top: 5px;
+  border: 2px solid #979797;
+}
