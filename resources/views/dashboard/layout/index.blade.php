@@ -6,7 +6,7 @@
   <title>Premier League 2017</title>
   <link href="/css/app.css" rel="stylesheet" type="text/css">
   <script src="js/jquery.min.js"></script>
-  <script src="js/config.js',array(),true) !!}"></script> 
+  <script src="js/config.js"></script> 
   <script src="js/typeahead.js"></script> 
 </head>
 </head>
