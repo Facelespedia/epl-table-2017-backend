@@ -18,10 +18,7 @@
     color: transparent;
   }
 }
-// .autocomplete-cursor {
-//   cursor: pointer;
-// }
-.d {
+.autocomplete-suggest {
   width: 300px;
   padding: 8px;
   &:hover {
@@ -29,7 +26,7 @@
     background-color: rgba(	151, 151, 151, 0.2 );
   }
 }
-.f {
+.autocomplete-open {
   margin-top: 5px;
   border: 2px solid #979797;
 }
