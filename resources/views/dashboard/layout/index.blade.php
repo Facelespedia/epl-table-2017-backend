@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Premier League 2017</title>
-  <link href="{{ URL::asset('/css/app.css') }}" rel="stylesheet" type="text/css">
-  <script src="{!! asset('js/jquery.min.js') !!}"></script>
-  <script src="{!! asset('js/config.js') !!}"></script> 
-  <script src="{!! asset('js/typeahead.js') !!}"></script> 
+  <link href="{{ URL::asset('/css/app.css' ,array(),true) }}" rel="stylesheet" type="text/css">
+  <script src="{!! asset('js/jquery.min.js',array(),true) !!}"></script>
+  <script src="{!! asset('js/config.js',array(),true) !!}"></script> 
+  <script src="{!! asset('js/typeahead.js',array(),true) !!}"></script> 
 </head>
 </head>
 <body>
